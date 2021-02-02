@@ -29,13 +29,11 @@ public class BonusMember {
     }
 
     private void checkAndSetMembership() {
-        if(bonusPointsBalance >= GOLD_LIMIT && !(membership instanceof GoldMembership)) {
+        if (bonusPointsBalance >= GOLD_LIMIT && !(membership instanceof GoldMembership)) {
             membership = new GoldMembership();
-        }
-        else if(bonusPointsBalance >= SILVER_LIMIT && !(membership instanceof SilverMembership)) {
+        } else if (bonusPointsBalance >= SILVER_LIMIT && !(membership instanceof SilverMembership)) {
             membership = new SilverMembership();
-        }
-        else if(!(membership instanceof BasicMembership)){
+        } else if (!(membership instanceof BasicMembership)) {
             membership = new BasicMembership();
         }
     }

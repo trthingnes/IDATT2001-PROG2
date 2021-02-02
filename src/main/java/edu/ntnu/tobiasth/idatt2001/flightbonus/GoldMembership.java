@@ -6,11 +6,10 @@ public class GoldMembership extends Membership {
     public int registerPoints(int bonusPointBalance, int newPoints) {
         float POINT_SCALING_FACTOR;
 
-        if(bonusPointBalance < 90000) {
+        if (bonusPointBalance < 90000) {
             POINT_SCALING_FACTOR = 1.3f;
-        }
-        else {
-             POINT_SCALING_FACTOR = 1.5f;
+        } else {
+            POINT_SCALING_FACTOR = 1.5f;
         }
 
         return Math.round(bonusPointBalance + (newPoints * POINT_SCALING_FACTOR));

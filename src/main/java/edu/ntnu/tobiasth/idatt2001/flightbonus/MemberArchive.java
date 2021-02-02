@@ -7,15 +7,15 @@ public class MemberArchive {
     HashMap<Integer, BonusMember> members = new HashMap<>();
 
     public int findPoints(int memberNumber, String password) {
-        if(!( members.containsKey(memberNumber) && members.get(memberNumber).checkPassword(password) )) {
-           return -1;
+        if (!(members.containsKey(memberNumber) && members.get(memberNumber).checkPassword(password))) {
+            return -1;
         }
 
         return members.get(memberNumber).getBonusPointsBalance();
     }
 
     public boolean registerPoints(int memberNumber, int newPoints) {
-        if(! members.containsKey(memberNumber) ) {
+        if (!members.containsKey(memberNumber)) {
             return false;
         }
 
@@ -24,7 +24,7 @@ public class MemberArchive {
     }
 
     public int addMember(BonusMember bonusMember) {
-        if(members.containsKey(bonusMember.getMemberNumber())) {
+        if (members.containsKey(bonusMember.getMemberNumber())) {
             return -1;
         }
 
@@ -33,7 +33,7 @@ public class MemberArchive {
     }
 
     public void listAllMembers() {
-        for(BonusMember bonusMember : members.values()) {
+        for (BonusMember bonusMember : members.values()) {
             System.out.println(bonusMember.toString());
         }
     }
