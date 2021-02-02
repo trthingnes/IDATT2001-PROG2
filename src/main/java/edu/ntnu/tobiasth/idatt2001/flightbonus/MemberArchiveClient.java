@@ -1,7 +1,6 @@
 package edu.ntnu.tobiasth.idatt2001.flightbonus;
 
 public class MemberArchiveClient {
-
     public static void main(String[] args) {
         MemberArchive memberArchive = new MemberArchive();
         memberArchive.addDummyData();

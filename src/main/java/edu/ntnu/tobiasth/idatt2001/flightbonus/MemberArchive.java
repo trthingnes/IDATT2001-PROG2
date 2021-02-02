@@ -6,6 +6,13 @@ import java.util.HashMap;
 public class MemberArchive {
     HashMap<Integer, BonusMember> members = new HashMap<>();
 
+    /**
+     * Get the number of points a member with the given number has.
+     * @param memberNumber Member number.
+     * @param password Member password.
+     * @return Number of points if member exists and password is correct, and -1 if not.
+     * @author trthingnes
+     */
     public int findPoints(int memberNumber, String password) {
         if (!(members.containsKey(memberNumber) && members.get(memberNumber).checkPassword(password))) {
             return -1;
@@ -14,6 +21,13 @@ public class MemberArchive {
         return members.get(memberNumber).getBonusPointsBalance();
     }
 
+    /**
+     * Register new points for the given user.
+     * @param memberNumber Member number.
+     * @param newPoints New points to add.
+     * @return True if points added, false if not.'
+     * @author trthingnes
+     */
     public boolean registerPoints(int memberNumber, int newPoints) {
         if (!members.containsKey(memberNumber)) {
             return false;
@@ -23,6 +37,12 @@ public class MemberArchive {
         return true;
     }
 
+    /**
+     * Add a new bonus member to the archive.
+     * @param bonusMember Bonus member to add.
+     * @return Member number if member is added, -1 if member with given number already exists.
+     * @author trthingnes
+     */
     public int addMember(BonusMember bonusMember) {
         if (members.containsKey(bonusMember.getMemberNumber())) {
             return -1;
@@ -32,6 +52,10 @@ public class MemberArchive {
         return bonusMember.getMemberNumber();
     }
 
+    /**
+     * Prints a list of all members to the console.
+     * @author trthingnes
+     */
     public void listAllMembers() {
         for (BonusMember bonusMember : members.values()) {
             System.out.println(bonusMember.toString());
