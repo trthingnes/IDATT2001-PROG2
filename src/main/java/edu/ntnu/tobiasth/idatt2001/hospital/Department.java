@@ -3,6 +3,7 @@ package edu.ntnu.tobiasth.idatt2001.hospital;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Department {
     private String departmentName;
@@ -35,6 +36,18 @@ public class Department {
 
     public void addEmployee(Employee employee) {
         employees.putIfAbsent(employee.getPersonalIdNumber(), employee);
+    }
+
+    public void removePerson(Person person) throws RemoveException {
+        Optional<Patient> patient = patients.values().stream().filter(person::equals).findFirst();
+        Optional<Employee> employee = employees.values().stream().filter(person::equals).findFirst();
+
+        if(patient.isEmpty() && employee.isEmpty()) {
+            throw new RemoveException("Could not find the given person.");
+        }
+
+        patient.ifPresent(value -> patients.remove(value.getPersonalIdNumber()));
+        employee.ifPresent(value -> employees.remove(value.getPersonalIdNumber()));
     }
 
     @Override
