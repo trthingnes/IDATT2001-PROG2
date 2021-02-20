@@ -1,9 +1,6 @@
 package edu.ntnu.tobiasth.idatt2001.hospital;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 public class Department {
     private String departmentName;
@@ -23,7 +20,7 @@ public class Department {
     }
 
     public List<Patient> getPatients() {
-        return (List<Patient>) patients.values();
+        return new ArrayList<>(patients.values());
     }
 
     public void addPatient(Patient patient) {
@@ -31,7 +28,7 @@ public class Department {
     }
 
     public List<Employee> getEmployees() {
-        return (List<Employee>) employees.values();
+        return new ArrayList<>(employees.values());
     }
 
     public void addEmployee(Employee employee) {
