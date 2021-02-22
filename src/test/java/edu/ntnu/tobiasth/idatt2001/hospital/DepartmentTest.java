@@ -3,8 +3,10 @@ package edu.ntnu.tobiasth.idatt2001.hospital;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @DisplayName("Department tests")
-public class DepartmentTest {
+class DepartmentTest {
     Department getTestDepartment() {
         Department department = new Department("Department");
 
@@ -34,7 +36,7 @@ public class DepartmentTest {
         department.removePerson(department.getEmployees().get(0));
         int sizeAfter = department.getEmployees().size();
 
-        assert sizeBefore == sizeAfter + 1;
+        assertEquals(sizeAfter + 1, sizeBefore);
     }
 
     @Test
@@ -46,39 +48,27 @@ public class DepartmentTest {
         department.removePerson(department.getPatients().get(0));
         int sizeAfter = department.getPatients().size();
 
-        assert sizeBefore == sizeAfter + 1;
+        assertEquals(sizeAfter + 1, sizeBefore);
     }
 
     @Test
     @DisplayName("Removing non existent employee throws RemoveException")
     void testRemovingNonExistentEmployeeThrowsRemoveException() {
         Department department = getTestDepartment();
-        boolean threwException = false;
 
-        try {
+        assertThrows(RemoveException.class, () -> {
             department.removePerson(new Employee("Finn", "Esikke", "49239402312"));
-        }
-        catch(RemoveException e) {
-            threwException = true;
-        }
-
-        assert threwException;
+        });
     }
 
     @Test
     @DisplayName("Removing non existent patient throws RemoveException")
     void testRemovingNonExistentPatientThrowsRemoveException() {
         Department department = getTestDepartment();
-        boolean threwException = false;
 
-        try {
+        assertThrows(RemoveException.class, () -> {
             department.removePerson(new Patient("Finn", "Esikke", "49239402312"));
-        }
-        catch(RemoveException e) {
-            threwException = true;
-        }
-
-        assert threwException;
+        });
     }
 
     @Test
@@ -88,18 +78,12 @@ public class DepartmentTest {
         String firstName = "Jan";
         String lastName = "Ansatt";
         String idNumber = "49201049832";
-        boolean threwException = false;
 
         department.addEmployee(new Employee(firstName, lastName, idNumber));
 
-        try {
+        assertThrows(RemoveException.class, () -> {
             department.removePerson(new Patient(firstName, lastName, idNumber));
-        }
-        catch(RemoveException e) {
-            threwException = true;
-        }
-
-        assert threwException;
+        });
     }
 
     @Test
@@ -113,13 +97,8 @@ public class DepartmentTest {
 
         department.addPatient(new Patient(firstName, lastName, idNumber));
 
-        try {
+        assertThrows(RemoveException.class, () -> {
             department.removePerson(new Employee(firstName, lastName, idNumber));
-        }
-        catch(RemoveException e) {
-            threwException = true;
-        }
-
-        assert threwException;
+        });
     }
 }

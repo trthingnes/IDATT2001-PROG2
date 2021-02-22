@@ -96,6 +96,9 @@ public class Department {
         return employees.equals(that.employees);
     }
 
+    /**
+     * @return Object hashcode
+     */
     @Override
     public int hashCode() {
         int result = departmentName != null ? departmentName.hashCode() : 0;
@@ -104,6 +107,9 @@ public class Department {
         return result;
     }
 
+    /**
+     * @return Object string
+     */
     @Override
     public String toString() {
         return "Department{" +
