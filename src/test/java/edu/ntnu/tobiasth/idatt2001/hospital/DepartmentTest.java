@@ -14,30 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("Department tests")
 class DepartmentTest {
-  Department getTestDepartment() {
-    Department department = new Department("Department");
-
-    Employee gp = new GeneralPractitioner("Odd Even", "Primtallet", "12345612345");
-    Employee surgeon = new Surgeon("Salti", "Kaffen", "44845678915");
-    Employee nurse = new Nurse("Ove", "Ralt", "65432154321");
-
-    Patient p1 = new Patient("Inco", "Gnito", "12345612345");
-    Patient p2 = new Patient("Gene", "Sis", "65432154321");
-
-    department.addEmployee(gp);
-    department.addEmployee(surgeon);
-    department.addEmployee(nurse);
-
-    department.addPatient(p1);
-    department.addPatient(p2);
-
-    return department;
-  }
-
   @Test
   @DisplayName("Employee is removed when supposed to")
   void testEmployeeIsRemovedCorrectly() throws RemoveException {
-    Department department = getTestDepartment();
+    Hospital hospital = HospitalTestData.fillRegisterWithTestData(new Hospital("St. Olav"));
+    Department department = hospital.getDepartments().get(0);
 
     int sizeBefore = department.getEmployees().size();
     department.removePerson(department.getEmployees().get(0));
@@ -49,7 +30,8 @@ class DepartmentTest {
   @Test
   @DisplayName("Patient is removed when supposed to")
   void testPatientIsRemovedCorrectly() throws RemoveException {
-    Department department = getTestDepartment();
+    Hospital hospital = HospitalTestData.fillRegisterWithTestData(new Hospital("St. Olav"));
+    Department department = hospital.getDepartments().get(0);
 
     int sizeBefore = department.getPatients().size();
     department.removePerson(department.getPatients().get(0));
@@ -61,7 +43,8 @@ class DepartmentTest {
   @Test
   @DisplayName("Removing non existent employee throws RemoveException")
   void testRemovingNonExistentEmployeeThrowsRemoveException() {
-    Department department = getTestDepartment();
+    Hospital hospital = HospitalTestData.fillRegisterWithTestData(new Hospital("St. Olav"));
+    Department department = hospital.getDepartments().get(0);
 
     assertThrows(
         RemoveException.class,
@@ -71,7 +54,8 @@ class DepartmentTest {
   @Test
   @DisplayName("Removing non existent patient throws RemoveException")
   void testRemovingNonExistentPatientThrowsRemoveException() {
-    Department department = getTestDepartment();
+    Hospital hospital = HospitalTestData.fillRegisterWithTestData(new Hospital("St. Olav"));
+    Department department = hospital.getDepartments().get(0);
 
     assertThrows(
         RemoveException.class,
@@ -82,7 +66,9 @@ class DepartmentTest {
   @DisplayName(
       "Removing non existent patient where the info matches an employee throws RemoveException")
   void testRemovingNonExistentPatientWithInfoMatchingEmployeeThrowsRemoveException() {
-    Department department = getTestDepartment();
+    Hospital hospital = HospitalTestData.fillRegisterWithTestData(new Hospital("St. Olav"));
+    Department department = hospital.getDepartments().get(0);
+
     String firstName = "Jan";
     String lastName = "Ansatt";
     String idNumber = "49201049832";
@@ -98,11 +84,12 @@ class DepartmentTest {
   @DisplayName(
       "Removing non existent employee where the info matches a patient throws RemoveException")
   void testRemovingNonExistentEmployeeWithInfoMatchingPatientThrowsRemoveException() {
-    Department department = getTestDepartment();
+    Hospital hospital = HospitalTestData.fillRegisterWithTestData(new Hospital("St. Olav"));
+    Department department = hospital.getDepartments().get(0);
+
     String firstName = "Jan";
     String lastName = "Ansatt";
     String idNumber = "49201049832";
-    boolean threwException = false;
 
     department.addPatient(new Patient(firstName, lastName, idNumber));
 
