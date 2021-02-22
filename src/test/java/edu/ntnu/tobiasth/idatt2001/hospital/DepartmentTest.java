@@ -56,9 +56,9 @@ class DepartmentTest {
     void testRemovingNonExistentEmployeeThrowsRemoveException() {
         Department department = getTestDepartment();
 
-        assertThrows(RemoveException.class, () -> {
-            department.removePerson(new Employee("Finn", "Esikke", "49239402312"));
-        });
+        assertThrows(RemoveException.class, () ->
+            department.removePerson(new Employee("Finn", "Esikke", "49239402312"))
+        );
     }
 
     @Test
@@ -66,9 +66,9 @@ class DepartmentTest {
     void testRemovingNonExistentPatientThrowsRemoveException() {
         Department department = getTestDepartment();
 
-        assertThrows(RemoveException.class, () -> {
-            department.removePerson(new Patient("Finn", "Esikke", "49239402312"));
-        });
+        assertThrows(RemoveException.class, () ->
+            department.removePerson(new Patient("Finn", "Esikke", "49239402312"))
+        );
     }
 
     @Test
@@ -81,9 +81,9 @@ class DepartmentTest {
 
         department.addEmployee(new Employee(firstName, lastName, idNumber));
 
-        assertThrows(RemoveException.class, () -> {
-            department.removePerson(new Patient(firstName, lastName, idNumber));
-        });
+        assertThrows(RemoveException.class, () ->
+            department.removePerson(new Patient(firstName, lastName, idNumber))
+        );
     }
 
     @Test
@@ -97,8 +97,8 @@ class DepartmentTest {
 
         department.addPatient(new Patient(firstName, lastName, idNumber));
 
-        assertThrows(RemoveException.class, () -> {
-            department.removePerson(new Employee(firstName, lastName, idNumber));
-        });
+        assertThrows(RemoveException.class, () ->
+            department.removePerson(new Employee(firstName, lastName, idNumber))
+        );
     }
 }
