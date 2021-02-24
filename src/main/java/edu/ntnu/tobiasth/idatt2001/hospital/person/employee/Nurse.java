@@ -1,12 +1,31 @@
 package edu.ntnu.tobiasth.idatt2001.hospital.person.employee;
 
-/** Employees who cannot set diagnoses inherit the {@link Nurse} class. */
+import edu.ntnu.tobiasth.idatt2001.hospital.person.Patient;
+
+/**
+ * {@link Nurse} is an employee who cannot set {@link Patient} diagnoses.
+ *
+ * @author trthingnes
+ */
 public class Nurse extends Employee {
+  /**
+   * Constructs a new {@link Nurse} object.
+   *
+   * @param firstName Nurse first name
+   * @param lastName Nurse last name
+   * @param personalIdNumber Nurse personal ID number
+   * @author trthingnes
+   */
   public Nurse(String firstName, String lastName, String personalIdNumber) {
     super(firstName, lastName, personalIdNumber);
   }
 
-  /** @return Object string */
+  /**
+   * {@inheritDoc}
+   *
+   * @return Object string
+   * @author trthingnes
+   */
   @Override
   public String toString() {
     return super.toString();

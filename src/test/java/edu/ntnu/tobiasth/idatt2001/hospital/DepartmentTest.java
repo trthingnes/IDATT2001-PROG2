@@ -3,9 +3,6 @@ package edu.ntnu.tobiasth.idatt2001.hospital;
 import edu.ntnu.tobiasth.idatt2001.hospital.exception.RemoveException;
 import edu.ntnu.tobiasth.idatt2001.hospital.person.Patient;
 import edu.ntnu.tobiasth.idatt2001.hospital.person.employee.Employee;
-import edu.ntnu.tobiasth.idatt2001.hospital.person.employee.Nurse;
-import edu.ntnu.tobiasth.idatt2001.hospital.person.employee.doctor.GeneralPractitioner;
-import edu.ntnu.tobiasth.idatt2001.hospital.person.employee.doctor.Surgeon;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @DisplayName("Department tests")
 class DepartmentTest {
   @Test
-  @DisplayName("Employee is removed when supposed to")
+  @DisplayName("Employee is removed when it matches existing employee.")
   void testEmployeeIsRemovedCorrectly() throws RemoveException {
     Hospital hospital = HospitalTestData.fillRegisterWithTestData(new Hospital("St. Olav"));
     Department department = hospital.getDepartments().get(0);
@@ -28,7 +25,7 @@ class DepartmentTest {
   }
 
   @Test
-  @DisplayName("Patient is removed when supposed to")
+  @DisplayName("Patient is removed when it matches existing patient.")
   void testPatientIsRemovedCorrectly() throws RemoveException {
     Hospital hospital = HospitalTestData.fillRegisterWithTestData(new Hospital("St. Olav"));
     Department department = hospital.getDepartments().get(0);
@@ -68,7 +65,6 @@ class DepartmentTest {
   void testRemovingNonExistentPatientWithInfoMatchingEmployeeThrowsRemoveException() {
     Hospital hospital = HospitalTestData.fillRegisterWithTestData(new Hospital("St. Olav"));
     Department department = hospital.getDepartments().get(0);
-
     String firstName = "Jan";
     String lastName = "Ansatt";
     String idNumber = "49201049832";
@@ -86,7 +82,6 @@ class DepartmentTest {
   void testRemovingNonExistentEmployeeWithInfoMatchingPatientThrowsRemoveException() {
     Hospital hospital = HospitalTestData.fillRegisterWithTestData(new Hospital("St. Olav"));
     Department department = hospital.getDepartments().get(0);
-
     String firstName = "Jan";
     String lastName = "Ansatt";
     String idNumber = "49201049832";

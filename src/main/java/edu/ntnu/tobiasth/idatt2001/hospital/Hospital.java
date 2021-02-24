@@ -8,16 +8,29 @@ public class Hospital {
   private final String hospitalName;
   private final ArrayList<Department> departments = new ArrayList<>();
 
+  /**
+   * Constructs a new hospital with the provided name.
+   *
+   * @param hospitalName Hospital name
+   */
   public Hospital(String hospitalName) {
     this.hospitalName = hospitalName;
   }
 
-  /** @return Hospital name */
+  /**
+   * Gets the hospital name.
+   *
+   * @return Hospital name
+   */
   public String getHospitalName() {
     return hospitalName;
   }
 
-  /** @return List of departments */
+  /**
+   * Gets the hospital departments.
+   *
+   * @return List of departments
+   */
   public List<Department> getDepartments() {
     return departments;
   }
@@ -31,15 +44,13 @@ public class Hospital {
     departments.add(department);
   }
 
-  /** @return Object string */
+  /**
+   * Get a string version of the object.
+   *
+   * @return Object string
+   */
   @Override
   public String toString() {
-    return "Hospital{"
-        + "hospitalName='"
-        + hospitalName
-        + '\''
-        + ", departments="
-        + departments
-        + '}';
+    return String.format("Hospital %s", hospitalName);
   }
 }
