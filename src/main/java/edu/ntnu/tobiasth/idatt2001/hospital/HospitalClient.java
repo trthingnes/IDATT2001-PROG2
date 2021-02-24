@@ -11,6 +11,11 @@ import edu.ntnu.tobiasth.idatt2001.hospital.person.employee.Employee;
  */
 public class HospitalClient {
   /**
+   * Private constructor to ensure static use only.
+   */
+  private HospitalClient() {}
+
+  /**
    * Main method that runs the client.
    *
    * @param args Built-in arguments.

@@ -38,7 +38,12 @@ public class Department {
     return departmentName;
   }
 
-  /** @param departmentName New department name */
+  /**
+   * Sets the department name
+   * @param departmentName New department name
+   *
+   * @author trthingnes
+   */
   public void setDepartmentName(String departmentName) {
     this.departmentName = departmentName;
   }
@@ -139,7 +144,7 @@ public class Department {
   }
 
   /**
-   * Get a string version of then object.
+   * Get a string version of the object.
    *
    * @return Object string
    * @author trthingnes

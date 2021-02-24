@@ -23,7 +23,7 @@ public abstract class Person {
     this.lastName = lastName;
 
     try {
-      this.personalIdNumber = String.valueOf(Integer.parseInt(personalIdNumber));
+      this.personalIdNumber = String.valueOf(Long.parseLong(personalIdNumber));
     } catch (NumberFormatException e) {
       throw new IllegalArgumentException(String.format("%s is not a number.", personalIdNumber));
     }
