@@ -6,9 +6,7 @@ import edu.ntnu.tobiasth.idatt2001.hospital.person.employee.Nurse;
 import edu.ntnu.tobiasth.idatt2001.hospital.person.employee.doctor.GeneralPractitioner;
 import edu.ntnu.tobiasth.idatt2001.hospital.person.employee.doctor.Surgeon;
 
-/**
- * Contains test data for use with {@link Hospital} and {@link HospitalClient}.
- */
+/** Contains test data for use with {@link Hospital} and {@link HospitalClient}. */
 public class HospitalTestData {
   /**
    * Hidden constructor to assure static use only.

@@ -6,9 +6,9 @@ package edu.ntnu.tobiasth.idatt2001.hospital.person;
  * @author trthingnes
  */
 public abstract class Person {
+  private final String personalIdNumber;
   private String firstName;
   private String lastName;
-  private String personalIdNumber;
 
   /**
    * Constructs a new {@link Person} object.
@@ -19,13 +19,18 @@ public abstract class Person {
    * @author trthingnes
    */
   protected Person(String firstName, String lastName, String personalIdNumber) {
+    if (firstName.isBlank() || lastName.isBlank()) {
+      throw new IllegalArgumentException("First/Last name cannot be blank.");
+    }
+
     this.firstName = firstName;
     this.lastName = lastName;
 
     try {
       this.personalIdNumber = String.valueOf(Long.parseLong(personalIdNumber));
     } catch (NumberFormatException e) {
-      throw new IllegalArgumentException(String.format("%s is not a number.", personalIdNumber));
+      throw new IllegalArgumentException(
+          String.format("Personal ID Number cannot be \"%s\".", personalIdNumber));
     }
   }
 
@@ -87,16 +92,6 @@ public abstract class Person {
    */
   public String getPersonalIdNumber() {
     return personalIdNumber;
-  }
-
-  /**
-   * Set the persons personal ID number.
-   *
-   * @param personalIdNumber New personal ID number
-   * @author trthingnes
-   */
-  public void setPersonalIdNumber(String personalIdNumber) {
-    this.personalIdNumber = personalIdNumber;
   }
 
   /**

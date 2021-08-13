@@ -7,14 +7,14 @@ package edu.ntnu.tobiasth.idatt2001.hospital.exception;
  */
 public class RemoveException extends Exception {
   /**
-   * Constructs a {@link RemoveException}.
+   * Constructs a {@link RemoveException} instance.
    *
    * @author trthingnes
    */
   public RemoveException() {}
 
   /**
-   * Constructs a {@link RemoveException} with the specified message.
+   * Constructs a {@link RemoveException} instance with the specified message.
    *
    * @param message Message
    * @author trthingnes

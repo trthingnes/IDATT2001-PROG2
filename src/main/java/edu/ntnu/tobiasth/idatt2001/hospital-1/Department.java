@@ -25,26 +25,30 @@ public class Department {
    * @author trthingnes
    */
   public Department(String departmentName) {
-    this.departmentName = departmentName;
+    setName(departmentName);
   }
 
   /**
-   * Gets the department name
+   * Gets the department name.
    *
    * @return Department name
    * @author trthingnes
    */
-  public String getDepartmentName() {
+  public String getName() {
     return departmentName;
   }
 
   /**
-   * Sets the department name
-   * @param departmentName New department name
+   * Sets the department name.
    *
+   * @param departmentName New department name
    * @author trthingnes
    */
-  public void setDepartmentName(String departmentName) {
+  public void setName(String departmentName) {
+    if (departmentName.isBlank()) {
+      throw new IllegalArgumentException("Department name cannot be blank.");
+    }
+
     this.departmentName = departmentName;
   }
 

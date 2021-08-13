@@ -10,9 +10,7 @@ import edu.ntnu.tobiasth.idatt2001.hospital.person.employee.Employee;
  * @author trthingnes
  */
 public class HospitalClient {
-  /**
-   * Private constructor to ensure static use only.
-   */
+  /** Private constructor to ensure static use only. */
   private HospitalClient() {}
 
   /**
@@ -32,12 +30,14 @@ public class HospitalClient {
 
     try {
       // Should succeed.
+      System.out.printf("Removing %s... (This should work)%n", employeeToRemove.toString());
       department.removePerson(employeeToRemove);
 
       // Should fail.
+      System.out.printf("Removing %s... (This should fail)%n", patientToRemove.toString());
       department.removePerson(patientToRemove);
     } catch (RemoveException e) {
-      System.err.printf("Could not remove the person! More info: %s", e.getMessage());
+      System.err.printf("Could not remove the person!%nMore info: %s", e.getMessage());
     }
   }
 }

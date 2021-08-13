@@ -20,15 +20,4 @@ public class Employee extends Person {
   public Employee(String firstName, String lastName, String personalIdNumber) {
     super(firstName, lastName, personalIdNumber);
   }
-
-  /**
-   * {@inheritDoc}
-   *
-   * @return Object string
-   * @author trthingnes
-   */
-  @Override
-  public String toString() {
-    return super.toString();
-  }
 }

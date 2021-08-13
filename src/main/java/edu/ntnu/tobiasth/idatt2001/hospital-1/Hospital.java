@@ -14,6 +14,10 @@ public class Hospital {
    * @param hospitalName Hospital name
    */
   public Hospital(String hospitalName) {
+    if (hospitalName.isBlank()) {
+      throw new IllegalArgumentException("Hospital name cannot be blank.");
+    }
+
     this.hospitalName = hospitalName;
   }
 
@@ -22,7 +26,7 @@ public class Hospital {
    *
    * @return Hospital name
    */
-  public String getHospitalName() {
+  public String getName() {
     return hospitalName;
   }
 
